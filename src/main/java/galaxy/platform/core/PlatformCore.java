@@ -1,5 +1,8 @@
 package galaxy.platform.core;
 
+import galaxy.platform.util.*;
+import java.io.*;
+
 /**
  * program: Galaxy
  * 平台核心组件，主要完成整个框架的构建和各类平台插件的加载
@@ -18,12 +21,44 @@ public class PlatformCore {
      * @version 1.0
      */
     public boolean initialize(){
-        System.out.println("Galaxy Platform initialize is beging!!!");
+
+        readBanner();
+
+        LoggerUtil.newInstance();
+
+        LoggerUtil.log.info("Galaxy Platform initialize is beging!!!");
 
         //核心功能初始化
-        PlatformAddinManager.newInstance().loadAddins();
+        //PlatformAddinManager.newInstance().loadAddins();
 
-        System.out.println("Galaxy Platform initialize completed!!!");
+        LoggerUtil.log.info("Galaxy Platform initialize completed!!!");
         return true;
+    }
+
+    private void readBanner(){
+        File file = new File("E:\\Java\\project\\Galaxy\\conifg\\platform\\banner");
+        BufferedReader bf = null;
+        if (file.exists() && file.isFile()) {
+            try {
+                bf = new BufferedReader(new FileReader(file));
+
+                String content = "";
+
+                while(content != null){
+                    content = bf.readLine();
+
+                    if(content == null){
+                        break;
+                    }
+                    System.out.println(content);
+                }
+                bf.close();
+                System.out.println("\r\n");
+            }
+            catch (IOException e){
+                System.out.println("can not find conifg\\platform\\banner");
+                e.printStackTrace();
+            }
+        }
     }
 }

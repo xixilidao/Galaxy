@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<platform-core>
+    <!--deploymode部署模式 Standalone 独立部署 Pseudo-Distributed 伪分布（用于测试）Cluster 分布式部署-->
+    <deploymode>Standalone</deploymode>
+
+    <version>1.0</version>
+
+    <!--department运行部门 使用名称或者编码，后期指定-->
+    <department>earth</department>
+
+    <property>
+        <!--平台日志存放路径，可以本地，也可以存放在hdfs上-->
+        <name>platform.log.dir</name>
+        <value>hdfs://bigdata-senior01.chybinmy.com:8020</value>
+    </property>
+    <property>
+        <!--平台日志输出级别--DEBUG INFO WARN ERROR FATAL OFF 建议只使用四个级别，优先级 从高到低分别是 ERROR、WARN、INFO、DEBUG-->
+        <name>platform.log.level</name>
+        <value>FATAL</value>
+    </property>
+
+</platform-core>
+
+

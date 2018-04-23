@@ -28,9 +28,15 @@ public class PlatformAddinManager {
     public boolean loadAddins(){
         try {
             Class c = Class.forName("helleo");
-            PlatformAddinInterface addin = (PlatformAddinInterface)c.newInstance();
-            ls.add(addin);
-
+            if (c != null){
+                PlatformAddinInterface addin = (PlatformAddinInterface)c.newInstance();
+                ls.add(addin);
+            }
+            else {
+                System.out.println("addins not found");
+                return false;
+            }
+            return true;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             return false;

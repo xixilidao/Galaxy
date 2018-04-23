@@ -1,9 +1,13 @@
 package galaxy;
 
+import galaxy.platform.core.PlatformCore;
+
 public class main {
 
     public static void main(String[] args){
-        System.out.println("welcome to Galaxy!!!");
+
+        PlatformCore core = new PlatformCore();
+        core.initialize();
     }
 }
 

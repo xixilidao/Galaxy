@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<platform-addins>
+    <addin>
+        <!--平台日志存放路径，可以本地，也可以存放在hdfs上-->
+        <name>platform.log.dir</name>
+        <version>1.1</version>
+        <path>hdfs://bigdata-senior01.chybinmy.com:8020</path>
+    </addin>
+</platform-addins>
+
+
