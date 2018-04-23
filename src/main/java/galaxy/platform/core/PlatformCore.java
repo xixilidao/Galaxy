@@ -24,6 +24,10 @@ public class PlatformCore {
 
         readBanner();
 
+        //初始化xml工具
+        XmlUtil.newInstance();
+
+        //初始化日志记录器，只有初始化，日志工具才可以使用,单例模式
         LoggerUtil.newInstance();
 
         LoggerUtil.log.info("Galaxy Platform initialize is beging!!!");
